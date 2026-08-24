@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17266d">
+  <meta name="description" content="Akadify — Academic & Research Support. Professional support for students, lecturers, teachers and researchers in writing, research, publication, teaching and academic administration.">
+  <meta name="robots" content="index, follow">
+  <title>Akadify — Academic & Research Support</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Akadify — Academic & Research Support">
+  <meta property="og:description" content="Your integrated partner for academic and research support.">
+  <meta property="og:image" content="assets/akadify-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Akadify — Academic & Research Support">
+  <meta name="twitter:description" content="Your integrated partner for academic and research support.">
+
+  <style>
+    :root {
+      --navy:#17266d; --blue:#1d5c98; --cyan:#08c8d4; --cyan2:#09bfd0;
+      --ink:#14213d; --muted:#64748b; --line:#e6edf4; --bg:#f7fbfd; --white:#fff;
+      --gradient:linear-gradient(120deg,#17266d 0%,#176a9c 48%,#08c8d4 100%);
+      --shadow:0 18px 50px rgba(20,55,100,.10); --radius:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--white);line-height:1.65;overflow-x:hidden}
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
+    button{font:inherit}
+    .container{width:min(1120px,calc(100% - 40px));margin:auto}
+    .skip-link{position:fixed;left:14px;top:-60px;z-index:2000;padding:10px 14px;background:#fff;color:var(--navy);border-radius:10px;box-shadow:var(--shadow)}
+    .skip-link:focus{top:14px}
+    :focus-visible{outline:3px solid rgba(8,200,212,.55);outline-offset:3px}
+
+    /* NAV */
+    .site-nav{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(255,255,255,.90);backdrop-filter:blur(16px);border-bottom:1px solid rgba(230,237,244,.8)}
+    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .brand img{display:block;width:158px}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:700;color:#34435f}
+    .nav-links a{transition:color .2s ease}.nav-links a:hover{color:var(--cyan2)}
+    .nav-cta{padding:11px 18px;border-radius:999px;color:#fff!important;background:var(--gradient);box-shadow:0 8px 22px rgba(16,132,175,.22)}
+    .menu-btn{display:none;border:0;background:transparent;color:var(--navy);font-size:26px;cursor:pointer;width:44px;height:44px;border-radius:12px}
+
+    /* HERO */
+    .hero{padding:150px 0 95px;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 20%,rgba(8,200,212,.14),transparent 30%),radial-gradient(circle at 10% 90%,rgba(23,38,109,.08),transparent 32%),#fff}
+    .hero::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-220px;top:90px;background:linear-gradient(135deg,rgba(23,38,109,.06),rgba(8,200,212,.12));filter:blur(4px)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:70px;position:relative;z-index:1}
+    .eyebrow,.section-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--blue);margin-bottom:20px}
+    .eyebrow::before{content:"";width:32px;height:2px;background:var(--cyan)}
+    h1{font-size:clamp(42px,5.4vw,70px);line-height:1.04;letter-spacing:-.045em;margin-bottom:24px;max-width:700px}
+    .gradient-text{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:17px;color:var(--muted);max-width:610px;margin-bottom:32px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:12px;font-weight:800;font-size:14px;transition:transform .2s ease,box-shadow .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{color:#fff;background:var(--gradient);box-shadow:0 12px 28px rgba(20,100,160,.22)}
+    .btn-secondary{color:var(--navy);border:1px solid var(--line);background:#fff}
+    .hero-card{min-height:390px;border-radius:32px;background:var(--gradient);overflow:hidden;box-shadow:0 28px 70px rgba(17,74,130,.22);display:flex;align-items:center;justify-content:center;padding:35px;position:relative}
+    .hero-card::before,.hero-card::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.18)}
+    .hero-card::before{width:420px;height:420px;top:-190px;right:-160px}.hero-card::after{width:280px;height:280px;bottom:-150px;left:-100px}
+    .hero-card-content{position:relative;z-index:2;width:100%}
+    .hero-logo{width:min(330px,80%);margin:0 auto 30px;display:block;filter:brightness(0) invert(1)}
+    .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .mini-item{padding:15px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.10);backdrop-filter:blur(10px);border-radius:15px;color:#fff}
+    .mini-item strong{display:block;font-size:14px;margin-bottom:3px}.mini-item span{font-size:11px;opacity:.78}
+
+    /* SECTIONS */
+    section{padding:95px 0}.section-head{max-width:690px;margin-bottom:48px}.section-kicker{color:var(--cyan2);margin-bottom:10px}
+    h2{font-size:clamp(31px,4vw,48px);line-height:1.1;letter-spacing:-.035em;margin-bottom:16px}.section-head p{color:var(--muted);font-size:16px}
+
+    /* ABOUT */
+    .about{background:var(--bg)}.about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:70px;align-items:center}
+    .about-visual{min-height:390px;border-radius:28px;background:var(--gradient);padding:35px;display:flex;align-items:flex-end;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+    .about-visual::before{content:"RESEARCH";position:absolute;top:40px;left:-20px;font-size:78px;line-height:1;font-weight:800;color:rgba(255,255,255,.09);transform:rotate(-90deg);transform-origin:left top}
+    .about-quote{position:relative;z-index:2;color:#fff;font-size:25px;line-height:1.25;font-weight:800;max-width:390px}
+    .about-text p{color:var(--muted);margin-bottom:17px}.about-text p:last-child{margin-bottom:0}
+
+    /* SERVICES */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service-card{padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:.25s ease;position:relative;overflow:hidden}
+    .service-card:hover{transform:translateY(-5px);border-color:rgba(8,191,208,.35);box-shadow:var(--shadow)}
+    .service-number{font-size:12px;color:var(--cyan2);font-weight:800;letter-spacing:.1em;margin-bottom:20px}.service-card h3{font-size:19px;margin-bottom:12px;line-height:1.3}.service-card p{color:var(--muted);font-size:13px}
+
+    /* WHY */
+    .why{background:var(--bg)}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.why-card{padding:28px;background:#fff;border-radius:20px;border:1px solid var(--line)}
+    .why-icon{width:42px;height:42px;border-radius:13px;background:#e9fbfd;color:var(--blue);display:grid;place-items:center;font-weight:800;margin-bottom:17px}.why-card h3{font-size:17px;margin-bottom:7px}.why-card p{font-size:13px;color:var(--muted)}
+
+    /* AUDIENCE */
+    .audience{padding-top:80px;padding-bottom:80px}.audience-list{display:flex;flex-wrap:wrap;gap:12px}.audience-pill{padding:13px 19px;border:1px solid var(--line);border-radius:999px;background:#fff;color:#34435f;font-weight:700;font-size:14px}
+
+    /* PROCESS */
+    .process{background:var(--gradient);color:#fff;position:relative;overflow:hidden}.process .section-kicker{color:#7ff5fa}.process .section-head p{color:rgba(255,255,255,.75)}
+    .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.process-step{position:relative;padding:24px 15px;text-align:center}.process-step:not(:last-child)::after{content:"→";position:absolute;right:-7px;top:50px;color:rgba(255,255,255,.55);font-size:20px}
+    .step-no{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-weight:800}.process-step h3{font-size:14px;margin-bottom:6px}.process-step p{color:rgba(255,255,255,.7);font-size:11px}
+
+    /* ETHICS / TRUST */
+    .trust{background:#fff}.trust-box{border:1px solid #dceff4;background:linear-gradient(135deg,#f7fdfe,#f8faff);border-radius:24px;padding:28px 30px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}.trust-icon{width:46px;height:46px;border-radius:14px;background:#e9fbfd;color:var(--blue);display:grid;place-items:center;font-weight:900}.trust-box h3{font-size:18px;margin-bottom:7px}.trust-box p{font-size:13px;color:var(--muted)}
+
+    /* CTA */
+    .cta{padding:100px 0}.cta-box{border-radius:30px;background:linear-gradient(135deg,#f1fbfd,#f7faff);border:1px solid #dff1f5;padding:65px;text-align:center;position:relative;overflow:hidden}.cta-box::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-100px;top:-100px;background:rgba(8,200,212,.12)}
+    .cta-box h2,.cta-box p,.cta-box .btn{position:relative;z-index:2}.cta-box p{color:var(--muted);max-width:620px;margin:0 auto 28px}
+
+    /* FOOTER */
+    footer{background:#101c54;color:#fff;padding:60px 0 25px}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:45px}.footer-brand img{width:180px;filter:brightness(0) invert(1);margin-bottom:15px}.footer-brand p{color:rgba(255,255,255,.65);max-width:360px;font-size:13px}.footer-col h4{font-size:14px;margin-bottom:16px}.footer-col a{display:block;color:rgba(255,255,255,.68);font-size:13px;margin:9px 0;transition:.2s}.footer-col a:hover{color:#62edf2}.copyright{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;color:rgba(255,255,255,.5);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+
+    /* FLOATING WHATSAPP */
+    .wa-float{position:fixed;right:22px;bottom:22px;z-index:900;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#20c56a;color:#fff;box-shadow:0 12px 28px rgba(0,0,0,.18);transition:transform .2s ease}.wa-float:hover{transform:translateY(-3px)}.wa-float svg{width:27px;height:27px;fill:currentColor}
+
+    @media (max-width:900px){
+      .nav-links{display:none;position:absolute;top:88px;left:14px;right:14px;padding:20px;flex-direction:column;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+      .nav-links.open{display:flex}.nav-links .nav-cta{text-align:center}.menu-btn{display:grid;place-items:center}
+      .hero-grid,.about-grid{grid-template-columns:1fr}.hero{padding-top:125px}.hero-card{min-height:340px}.services-grid,.why-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:1fr;gap:5px}
+      .process-step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-7px;transform:translateX(-50%)}.process-step{padding:18px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}
+    }
+    @media (max-width:600px){
+      .container{width:min(100% - 28px,1120px)}section{padding:70px 0}.brand img{width:135px}h1{font-size:42px}.hero-copy{font-size:15px}.hero-actions .btn{width:100%}.hero-card{padding:24px;border-radius:24px}.mini-grid{gap:8px}.mini-item{padding:12px}.services-grid,.why-grid,.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}.cta-box{padding:42px 22px}.trust-box{grid-template-columns:1fr}.copyright{flex-direction:column;gap:6px}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.service-card,.wa-float{transition:none}}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Akadify",
+    "description":"Academic & Research Support",
+    "email":"hello@akadify.my.id",
+    "sameAs":["https://instagram.com/akadify.my.id"],
+    "contactPoint":{
+      "@type":"ContactPoint",
+      "telephone":"+62-895-0232-1334",
+      "contactType":"customer support",
+      "availableLanguage":["Indonesian","English"]
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Akadify Home">
+        <img src="assets/akadify-logo.png" width="158" alt="Akadify — Partner riset dan akademik">
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why Akadify</a>
+        <a href="#process">How It Works</a>
+        <a class="nav-cta" href="https://wa.me/6289502321334?text=Halo%20Akadify%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20academic%20%26%20research%20support." target="_blank" rel="noopener noreferrer">Consult Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Academic &amp; Research Support</div>
+          <h1 id="hero-title">Focus on Your Ideas.<br><span class="gradient-text">Let Us Support the Process.</span></h1>
+          <p class="hero-copy">Akadify adalah layanan <strong>Academic Support &amp; Research Services</strong> yang membantu mahasiswa, dosen, guru, dan peneliti dalam kebutuhan writing, research, publication, teaching, dan academic administration secara lebih terstruktur dan efisien.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/6289502321334?text=Halo%20Akadify%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20academic%20%26%20research%20support." target="_blank" rel="noopener noreferrer">Consult with Akadify ↗</a>
+            <a class="btn btn-secondary" href="#services">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Akadify service overview">
+          <div class="hero-card-content">
+            <img class="hero-logo" src="assets/akadify-logo.png" width="330" alt="Akadify" aria-hidden="true">
+            <div class="mini-grid">
+              <div class="mini-item"><strong>Research</strong><span>Support for your research process</span></div>
+              <div class="mini-item"><strong>Writing</strong><span>Clear &amp; structured academic work</span></div>
+              <div class="mini-item"><strong>Publication</strong><span>Support for academic outputs</span></div>
+              <div class="mini-item"><strong>Administration</strong><span>More manageable academic tasks</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-visual"><div class="about-quote">“One integrated support system for your academic &amp; research needs.”</div></div>
+        <div class="about-text">
+          <div class="section-kicker">About Akadify</div>
+          <h2 id="about-title">Your Partner in Academic &amp; Research Support.</h2>
+          <p>Akadify adalah layanan <strong>Academic Support &amp; Research Services</strong> yang menyediakan bantuan profesional untuk kebutuhan akademik dan pendukung pekerjaan dosen, guru, peneliti, dan mahasiswa.</p>
+          <p>Kami menggabungkan <strong>research, writing, administration, education, publication,</strong> dan <strong>creative services</strong> dalam satu layanan yang terintegrasi.</p>
+          <p>Dengan dukungan tim yang memiliki keahlian di bidangnya, Akadify membantu klien menghemat waktu, meningkatkan efisiensi, dan menyelesaikan pekerjaan akademik dengan lebih terstruktur.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Our Services</div>
+          <h2 id="services-title">Academic support, all in one place.</h2>
+          <p>Berbagai layanan terintegrasi untuk membantu kebutuhan academic writing, research, publication, teaching, proposal, hingga administrasi.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><div class="service-number">01</div><h3>Academic Writing &amp; Editing</h3><p>Literature search, referensi, literature matrix, transkripsi, data, tabel, grafik, proofreading, editing, dan dokumen akademik.</p></article>
+          <article class="service-card"><div class="service-number">02</div><h3>Research &amp; Data Support</h3><p>Research support, data preparation, transkripsi, penyusunan tabel dan grafik, serta kebutuhan pendukung proses penelitian.</p></article>
+          <article class="service-card"><div class="service-number">03</div><h3>Publication &amp; Journal Support</h3><p>Formatting jurnal, reference checking, submission preparation, cover letter, dan academic profile.</p></article>
+          <article class="service-card"><div class="service-number">04</div><h3>Teaching &amp; Learning Support</h3><p>PPT, RPS, modul, worksheet, quiz, bahan ajar, dan kebutuhan Learning Management System (LMS).</p></article>
+          <article class="service-card"><div class="service-number">05</div><h3>Academic Administration</h3><p>Rekap data, nilai, tugas, filing, jadwal, laporan, dan berbagai kebutuhan administrasi akademik.</p></article>
+          <article class="service-card"><div class="service-number">06</div><h3>Proposal &amp; Institutional Support</h3><p>Proposal, RAB, proposal kerja sama, institutional profile, proofreading, editing, dan dokumen pendukung institusional.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">Why Akadify</div><h2 id="why-title">Built to make academic work easier.</h2><p>Kami membantu membuat proses kerja lebih rapi, efisien, terarah, dan sesuai kebutuhan setiap klien.</p></div>
+        <div class="why-grid">
+          <div class="why-card"><div class="why-icon">01</div><h3>Professional Team</h3><p>Didukung tim dengan keahlian yang relevan untuk kebutuhan akademik dan riset.</p></div>
+          <div class="why-card"><div class="why-icon">02</div><h3>Time Efficient</h3><p>Membantu menghemat waktu agar Anda dapat fokus pada prioritas utama.</p></div>
+          <div class="why-card"><div class="why-icon">03</div><h3>Flexible &amp; Customized</h3><p>Layanan disesuaikan dengan kebutuhan dan brief setiap klien.</p></div>
+          <div class="why-card"><div class="why-icon">04</div><h3>Confidential</h3><p>Informasi dan dokumen yang dipercayakan kepada kami ditangani secara profesional dan rahasia.</p></div>
+          <div class="why-card"><div class="why-icon">05</div><h3>Fast Response</h3><p>Komunikasi yang responsif untuk membuat proses koordinasi lebih nyaman.</p></div>
+          <div class="why-card"><div class="why-icon">06</div><h3>Structured Process</h3><p>Alur kerja jelas dari brief, quotation, production, hingga review dan delivery.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience" aria-labelledby="audience-title">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">Who We Support</div><h2 id="audience-title">Support for every academic journey.</h2></div>
+        <div class="audience-list">
+          <span class="audience-pill">Undergraduate Students / Mahasiswa S1</span>
+          <span class="audience-pill">Postgraduate Students / Mahasiswa S2</span>
+          <span class="audience-pill">Lecturers / Dosen</span>
+          <span class="audience-pill">Teachers / Guru</span>
+          <span class="audience-pill">Researchers / Peneliti</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head"><div class="section-kicker">How It Works</div><h2 id="process-title">A simple, structured process.</h2><p>From your initial brief to final delivery, setiap langkah dibuat agar kolaborasi tetap jelas dan efisien.</p></div>
+        <div class="process-grid">
+          <div class="process-step"><div class="step-no">01</div><h3>Brief</h3><p>Share your needs, goals, and project details.</p></div>
+          <div class="process-step"><div class="step-no">02</div><h3>Quotation</h3><p>Receive a tailored scope and quotation.</p></div>
+          <div class="process-step"><div class="step-no">03</div><h3>Confirm &amp; Payment</h3><p>Confirm the project and payment arrangement.</p></div>
+          <div class="process-step"><div class="step-no">04</div><h3>Production</h3><p>Our team works according to the agreed brief.</p></div>
+          <div class="process-step"><div class="step-no">05</div><h3>Review &amp; Delivery</h3><p>Review the result and receive the final deliverables.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="trust-box">
+          <div class="trust-icon" aria-hidden="true">✓</div>
+          <div><h3 id="trust-title">Support your work, not replace your academic responsibility.</h3><p>Akadify provides professional support, editing, research assistance, formatting, administration, and learning materials. Klien tetap menjadi pemilik ide, keputusan akademik, dan tanggung jawab atas penggunaan hasil pekerjaan.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact" aria-labelledby="cta-title">
+      <div class="container"><div class="cta-box"><div class="section-kicker">Let’s Work Together</div><h2 id="cta-title">Need Academic &amp; Research Support?</h2><p>Tell us what you need. Let’s make your academic work more structured, efficient, and manageable.</p><a class="btn btn-primary" href="https://wa.me/6289502321334?text=Halo%20Akadify%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20academic%20%26%20research%20support." target="_blank" rel="noopener noreferrer">Consult with Akadify ↗</a></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/akadify-logo.png" width="180" alt="Akadify"><p>Academic &amp; Research Support. Your integrated partner for research, writing, publication, teaching, and academic administration.</p></div>
+        <div class="footer-col"><h4>Explore</h4><a href="#about">About Akadify</a><a href="#services">Our Services</a><a href="#why">Why Akadify</a><a href="#process">How It Works</a></div>
+        <div class="footer-col"><h4>Contact</h4><a href="https://wa.me/6289502321334" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://instagram.com/akadify.my.id" target="_blank" rel="noopener noreferrer">@akadify.my.id</a><a href="mailto:hello@akadify.my.id">hello@akadify.my.id</a></div>
+      </div>
+      <div class="copyright"><span>© 2026 Akadify. All rights reserved.</span><span>Partner riset dan akademik.</span></div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/6289502321334?text=Halo%20Akadify%2C%20saya%20ingin%20konsultasi%20mengenai%20layanan%20Akadify." target="_blank" rel="noopener noreferrer" aria-label="Chat Akadify on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12.03 0C5.46 0 .11 5.35.11 11.92c0 2.1.55 4.15 1.6 5.96L.02 24l6.26-1.64a11.9 11.9 0 0 0 5.75 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.46-8.41ZM12.04 21.83h-.01a9.88 9.88 0 0 1-5.03-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.88 9.88 0 0 1-1.52-5.3C2.16 6.46 6.59 2.04 12.04 2.04a9.84 9.84 0 0 1 7 2.9 9.84 9.84 0 0 1 2.9 7c0 5.45-4.44 9.89-9.9 9.89Zm5.42-7.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46 0 1.45 1.06 2.85 1.2 3.05.15.2 2.09 3.19 5.06 4.47.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.07-.12-.27-.2-.57-.35Z"/></svg>
+  </a>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    const closeMenu=()=>{navLinks.classList.remove('open');document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open menu');menuBtn.textContent='☰';};
+    menuBtn.addEventListener('click',()=>{const open=!navLinks.classList.contains('open');navLinks.classList.toggle('open',open);document.body.classList.toggle('menu-open',open);menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');menuBtn.textContent=open?'✕':'☰';});
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+  </script>
+</body>
+</html>
